@@ -6,6 +6,7 @@
 #include <vector>
 #include "student.h"
 #include "teacher.h"
+#include "computer_room.h"
 #include <algorithm>
 
 using namespace std;
@@ -13,6 +14,7 @@ class Administrator : public AbstractIdentity
 {
 	vector<Student> vStudent_;
 	vector<Teacher> vTeacher_;
+	vector<ComputerRoom> vRoom_;
 
 public:
 	Administrator();
@@ -37,6 +39,8 @@ private:
 	void readStudentData();
 
 	void readTeacherData();
+
+	void readRoomData();
 
 	// type 1 = 学生，  type 2 = 教师
 	bool checkRepeat(int id, int type);

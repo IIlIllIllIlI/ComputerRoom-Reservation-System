@@ -166,7 +166,14 @@ void Administrator::showAccount()
 
 void Administrator::showRoomInfo()
 {
-	cout << "查看机房信息" << endl;
+	cout << "机房信息如下" << endl;
+
+	for (vector<ComputerRoom>::iterator it = vRoom_.begin(); it != vRoom_.end(); it++) {
+		cout << "机房编号: " << it->id_ << "\t\t 机房容量: " << it->capacity_ << endl;
+	}
+
+	system("pause");
+	system("cls");
 }
 
 void Administrator::cleanRecords()
@@ -183,9 +190,11 @@ void Administrator::readData()
 {
 	vStudent_.clear();
 	vTeacher_.clear();
+	vRoom_.clear();
 
 	readStudentData();
 	readTeacherData();
+	readRoomData();
 }
 
 void Administrator::readStudentData()
@@ -227,6 +236,27 @@ void Administrator::readTeacherData()
 	}
 
 	cout << "当前已录入的教师数量为：" << vTeacher_.size() << endl;
+	ifs.close();
+}
+
+void Administrator::readRoomData()
+{
+	ifstream ifs;
+	ifs.open(ROOM_FILE, ios::in);
+	if (!ifs.is_open())
+	{
+		cout << "文件读取失败" << endl;
+		system("pause");
+		system("cls");
+		return;
+	}
+
+	ComputerRoom r;
+	while (ifs >> r.id_ && ifs >> r.capacity_) {
+		vRoom_.push_back(r);
+	}
+
+	cout << "当前机房数量为：" << vRoom_.size() << endl;
 	ifs.close();
 }
 
