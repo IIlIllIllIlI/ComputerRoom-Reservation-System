@@ -41,6 +41,10 @@ void adminMenu(AbstractIdentity*& person)
 			// 清空预约
 			admin->cleanRecords();
 		}
+		else if (option == "6") {
+			// 查看所有预约
+			admin->showAllReservation();
+		}
 		else if (option == "0") {
 			delete admin;
 			cout << "注销成功" << endl;

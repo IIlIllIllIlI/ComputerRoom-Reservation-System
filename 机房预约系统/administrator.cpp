@@ -31,6 +31,8 @@ void Administrator::printSubInterface()
 	cout << "\t\t |                                   |\n";
 	cout << "\t\t |             5. 清空记录           |\n";
 	cout << "\t\t |                                   |\n";
+	cout << "\t\t |             6. 查看所有预约       |\n";
+	cout << "\t\t |                                   |\n";
 	cout << "\t\t |             0. 注销登录           |\n";
 	cout << "\t\t |                                   |\n";
 	cout << "\t\t  ----------------------------------- \n";
@@ -204,6 +206,25 @@ void Administrator::cleanRecords()
 void Administrator::examineAppointment()
 {
 	cout << "审核预约" << endl;
+}
+
+void Administrator::showAllReservation()
+{
+	RecordManager rm;
+	bool hasResult = false;
+
+	for (int i = 0; i < rm.getSize(); i++) {
+		Record* r = rm.vec_[i];
+		hasResult = true;
+		r->printRecord();
+	}
+
+	if (!hasResult) {
+		cout << "未找到预约记录" << endl;
+	}
+
+	system("pause");
+	system("cls");
 }
 
 void Administrator::readData()

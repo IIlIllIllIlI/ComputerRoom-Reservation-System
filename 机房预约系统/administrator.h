@@ -33,6 +33,8 @@ public:
 
 	void examineAppointment();
 
+	void showAllReservation();
+
 private:
 	void readData();
 
