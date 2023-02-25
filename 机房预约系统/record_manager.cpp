@@ -15,13 +15,13 @@ void RecordManager::writeFile()
 	ofstream ofs(RECORD_FILE, ios::out | ios::trunc);
 	for (int i = 0; i < size_; i++)
 	{
-		ofs << "data:" << map_[i]->date_ << " ";
-		ofs << "interval:" << map_[i]->interval_ << " ";
-		ofs << "userType:" << map_[i]->userType_ << " ";
-		ofs << "userId:" << map_[i]->userId_ << " ";
-		ofs << "userName:" << map_[i]->username_ << " ";
-		ofs << "roomId:" << map_[i]->roomId_ << " ";
-		ofs << "status:" << map_[i]->status_ << endl;
+		ofs << "data:" << vec_[i]->date_ << " ";
+		ofs << "interval:" << vec_[i]->interval_ << " ";
+		ofs << "userType:" << vec_[i]->userType_ << " ";
+		ofs << "userId:" << vec_[i]->userId_ << " ";
+		ofs << "userName:" << vec_[i]->username_ << " ";
+		ofs << "roomId:" << vec_[i]->roomId_ << " ";
+		ofs << "status:" << vec_[i]->status_ << endl;
 	}
 
 	ofs.close();
@@ -29,8 +29,8 @@ void RecordManager::writeFile()
 
 RecordManager::~RecordManager()
 {
-	for (map<int, Record*>::iterator it = map_.begin(); it != map_.end(); it++) {
-		delete (*it).second;
+	for (vector<Record*>::iterator it = vec_.begin(); it != vec_.end(); it++) {
+		delete (*it);
 	}
 }
 
@@ -67,7 +67,7 @@ void RecordManager::readFile()
 		Record* r = new Record(getVal(date), getVal(interval), getVal(userType),
 			getVal(userId), getVal(username), getVal(roomId), getVal(status));
 
-		map_.insert(make_pair(size_, r));
+		vec_.push_back(r);
 		size_++;
 	}
 

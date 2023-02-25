@@ -117,7 +117,7 @@ void Student::showMyReservation()
 	bool hasResult = false;
 
 	for (int i = 0; i < rm.getSize(); i++) {
-		Record* r = rm.map_[i];
+		Record* r = rm.vec_[i];
 		if (r->userType_ == "1" && atoi(r->userId_.c_str()) == id_) {
 			hasResult = true;
 			r->printRecord();
@@ -138,7 +138,7 @@ void Student::showAllReservation()
 	bool hasResult = false;
 
 	for (int i = 0; i < rm.getSize(); i++) {
-		Record* r = rm.map_[i];
+		Record* r = rm.vec_[i];
 		if (r->userType_ == "1" && atoi(r->userId_.c_str()) == id_) {
 			hasResult = true;
 			r->printRecord();

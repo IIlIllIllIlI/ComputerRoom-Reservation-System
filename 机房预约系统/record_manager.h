@@ -1,5 +1,5 @@
 #pragma once
-#include <map>
+#include <vector>
 #include "globalFIle.h"
 #include <fstream>
 #include "record.h"
@@ -10,7 +10,7 @@ class RecordManager
 
 public:
 
-	map<int, Record*> map_;
+	vector<Record*> vec_;
 
 	RecordManager(); 
 
@@ -25,6 +25,6 @@ private:
 
 	void readFile();
 
-	void sortRecord();
+	//void sortRecord();
 };
 
