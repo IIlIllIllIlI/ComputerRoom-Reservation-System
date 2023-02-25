@@ -39,6 +39,14 @@ int RecordManager::getSize()
 	return size_;
 }
 
+//void RecordManager::addRecord(string date, string interval, string userType, string userId, string username, string roomId, string status)
+//{
+//	Record* r = new Record(date, interval, userType, userId, username, roomId, status);
+//	vec_.push_back(r);
+//	size_++;
+//	writeFile();
+//}
+
 string RecordManager::getVal(string str)
 {
 	int pos = str.find(":");
@@ -73,8 +81,17 @@ void RecordManager::readFile()
 
 	ifs.close();
 
-
+	sortRecord();
 	/*for (map<int, Record>::iterator it = map_.begin(); it != map_.end(); it++) {
 		(*it).second.printRecord();
 	}*/
+}
+
+void RecordManager::sortRecord()
+{
+	cout << (vec_[0] < vec_[1]) << endl;
+	sort(vec_.begin(), vec_.end(), [](const Record* lhs, const Record* rhs)
+		{
+			return (*lhs < *rhs);
+		});
 }

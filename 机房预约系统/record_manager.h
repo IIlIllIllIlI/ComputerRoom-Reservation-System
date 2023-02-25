@@ -3,6 +3,8 @@
 #include "globalFIle.h"
 #include <fstream>
 #include "record.h"
+#include <algorithm>
+
 using namespace std;
 class RecordManager
 {
@@ -19,12 +21,16 @@ public:
 	~RecordManager();
 
 	int getSize();
+	
+	//void addRecord(string date, string interval, string userType, string userId,
+	//	string username, string roomId, string status);
 
 private:
 	string getVal(string str);
 
 	void readFile();
 
-	//void sortRecord();
+	void sortRecord();
+
 };
 

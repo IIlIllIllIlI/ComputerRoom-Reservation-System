@@ -142,3 +142,16 @@ void Record::printRecordPrivate()
 	cout << date << "\t" << interval << "\t\t" << roomId_ << "号机房" <<
 		"\t\t用户身份: "  << userType << "\t\t当前状态: " << status << endl;
 }
+
+bool Record::operator<(const Record& rec) const
+{
+	if (stoi(date_) < stoi(rec.date_)) {
+		return true;
+	}
+	else if (stoi(date_) > stoi(rec.date_)) {
+		return false;
+	}
+	else {
+		return (stoi(interval_) < stoi(rec.interval_));
+	}
+}

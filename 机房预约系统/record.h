@@ -20,5 +20,7 @@ public:
 	void printRecord();
 
 	void printRecordPrivate();
+
+	bool operator<(const Record& rec) const;
 };
 
