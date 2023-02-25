@@ -1,10 +1,17 @@
 #pragma once
 #include <iostream>
 #include "user.h"
+#include <vector>
+#include "computer_room.h"
+#include <fstream>
+#include "globalFIle.h"
+#include "record_manager.h"
 
 using namespace std; 
 class Student : public AbstractUser
 {
+
+	vector<ComputerRoom> vRoom_;
 public:
 	int id_;  // Ñ§ºÅ
 

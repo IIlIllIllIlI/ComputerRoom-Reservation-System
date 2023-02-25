@@ -30,6 +30,12 @@
     <ClCompile Include="computer_room.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="record_manager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="record.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="identity.h">
@@ -51,6 +57,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="computer_room.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="record_manager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="record.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

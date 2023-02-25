@@ -130,6 +130,8 @@
     <ClCompile Include="administrator.cpp" />
     <ClCompile Include="computer_room.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="record.cpp" />
+    <ClCompile Include="record_manager.cpp" />
     <ClCompile Include="student.cpp" />
     <ClCompile Include="teacher.cpp" />
   </ItemGroup>
@@ -138,6 +140,8 @@
     <ClInclude Include="computer_room.h" />
     <ClInclude Include="globalFIle.h" />
     <ClInclude Include="identity.h" />
+    <ClInclude Include="record.h" />
+    <ClInclude Include="record_manager.h" />
     <ClInclude Include="student.h" />
     <ClInclude Include="teacher.h" />
     <ClInclude Include="user.h" />
