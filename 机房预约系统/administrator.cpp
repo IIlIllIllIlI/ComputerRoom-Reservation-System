@@ -178,7 +178,27 @@ void Administrator::showRoomInfo()
 
 void Administrator::cleanRecords()
 {
-	cout << "清空记录" << endl;
+	cout << "数据不可恢复，您确定要清空所有预约记录吗？" << endl;
+	cout << "1. 确认清空" << endl;
+	cout << "按其他任意键取消" << endl;
+
+	string option;
+	cin >> option;
+	if (option == "1") {
+		ofstream ofs(RECORD_FILE, ios::trunc);
+		ofs.close();
+
+		cout << "预约记录清空成功!" << endl;
+		
+	}
+	else {
+		cout << "已取消清空" << endl;
+	}
+
+	system("pause");
+	system("cls");
+	
+	
 }
 
 void Administrator::examineAppointment()
