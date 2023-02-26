@@ -103,6 +103,49 @@ void studentMenu(AbstractIdentity*& person)
 	}
 }
 
+void teacherMenu(AbstractIdentity*& person)
+{
+	while (1) {
+		person->printSubInterface();
+
+		Teacher* stu = (Teacher*)person;
+
+		string option;
+		cin >> option;
+
+		if (option == "1") {
+			// 申请预约
+			stu->makeReservation();
+		}
+		else if (option == "2") {
+			// 查看自身预约记录
+			stu->showMyReservation();
+		}
+		else if (option == "3") {
+			// 查看所有预约
+			stu->showAllReservation();
+		}
+		else if (option == "4") {
+			// 取消自身预约
+			stu->cancelReservation();
+		}
+		else if (option == "0") {
+			// 注销账户
+			delete stu;
+			cout << "注销成功" << endl;
+			system("pause");
+			system("cls");
+			return;
+		}
+		else {
+			cout << "输入错误，请重新选择!" << endl;
+			system("pause");
+			system("cls");
+		}
+
+	}
+}
+
 
 void login(string fileName, int type)
 {
@@ -175,7 +218,7 @@ void login(string fileName, int type)
 				person = new Teacher(id, fName, pwd);
 				ifs.close();
 				// 进入教师的子界面
-
+				teacherMenu(person);
 				return;
 			}
 		}
