@@ -158,7 +158,56 @@ void Student::showAllReservation()
 
 void Student::cancelReservation()
 {
+	
+	RecordManager rm;
+	bool hasResult = false;
 
+	int index = 1;
+	vector<int> v;  // 
+
+	for (int i = 0; i < rm.getSize(); i++)
+	{
+		if (rm.vec_[i]->userType_ == "1" && id_ == atoi(rm.vec_[i]->userId_.c_str())) {
+			if (rm.vec_[i]->status_ != "0") {
+				v.push_back(i);
+				cout << index++ << ".\t";
+				rm.vec_[i]->printRecord();
+				hasResult = true;
+			}
+		}
+	}
+
+	if (!hasResult) {
+		cout << "无预约记录" << endl;
+		system("pause");
+		system("cls");
+		return;
+	}
+	cout << endl;
+	cout << "请输入要取消的记录, 输入0返回上一级" << endl;
+	int option;
+	while (1)
+	{
+		cin >> option;
+		if (option >= 0 && option <= v.size()) {
+			if (option == 0) {
+				break;
+			}
+			else {
+				rm.vec_[v[option - 1]]->status_ = "0";
+				rm.writeFile();
+
+				cout << "已取消预约" << endl;
+				break;
+			}
+		}
+		else {
+			cout << "输入有误, 请重新输入" << endl;
+		}
+	}
+
+	system("pause");
+	system("cls");
 }
 
 void Student::printInfo()

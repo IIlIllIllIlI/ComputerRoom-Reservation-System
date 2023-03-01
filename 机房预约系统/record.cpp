@@ -65,10 +65,10 @@ void Record::printRecord()
 	if (status_ == "1") {
 		status = "审核中";
 	}
-	else if (status == "2") {
+	else if (status_ == "2") {
 		status = "已批准";
 	}
-	else if (status == "0") {
+	else if (status_ == "0") {
 		status = "已取消";
 	}
 	else {
@@ -129,10 +129,10 @@ void Record::printRecordPrivate()
 	if (status_ == "1") {
 		status = "审核中";
 	}
-	else if (status == "2") {
+	else if (status_ == "2") {
 		status = "已批准";
 	}
-	else if (status == "0") {
+	else if (status_ == "0") {
 		status = "已取消";
 	}
 	else {

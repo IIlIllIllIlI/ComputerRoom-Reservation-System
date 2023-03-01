@@ -205,7 +205,57 @@ void Administrator::cleanRecords()
 
 void Administrator::examineAppointment()
 {
-	cout << "审核预约" << endl;
+	RecordManager rm;
+	vector<int> v;
+	int index = 1;
+
+	cout << "待审核的预约如下" << endl;
+	for (int i = 0; i < rm.getSize(); i++)
+	{
+		if (rm.vec_[i]->status_ == "1") {
+			v.push_back(i);
+			cout << index++ << "\t";
+			rm.vec_[i]->printRecord();
+		}
+	}
+
+	cout << endl;
+	cout << "请输入要审核的预约记录, 输入0返回上一级" << endl;
+	int option;
+	int res;
+
+	while (1)
+	{
+		cin >> option;
+		if (option >= 0 && option <= v.size()) {
+			if (option == 0) {
+				break;
+			}
+			else {
+				cout << "请输入审核结果" << endl;
+				cout << "1. 通过" << endl;
+				cout << "2. 不通过" << endl;
+				cin >> res;
+				if (res == 1) {
+					// 通过
+					rm.vec_[option - 1]->status_ = "2";
+				}
+				else {
+					rm.vec_[option - 1]->status_ = "0";
+				}
+
+				rm.writeFile();
+				cout << "审核完毕" << endl;
+				break;
+			}
+		}
+		else {
+			cout << "输入有误，请重新输入" << endl;
+		}
+	}
+	
+	system("pause");
+	system("cls");
 }
 
 void Administrator::showAllReservation()

@@ -89,7 +89,6 @@ void RecordManager::readFile()
 
 void RecordManager::sortRecord()
 {
-	cout << (vec_[0] < vec_[1]) << endl;
 	sort(vec_.begin(), vec_.end(), [](const Record* lhs, const Record* rhs)
 		{
 			return (*lhs < *rhs);
